@@ -25,7 +25,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 import Tts from 'react-native-tts';
 import BackgroundTimer from 'react-native-background-timer';
 
-const ONE_HOUR = 3600000;
+const ONE_HOUR = 2000; //3600000;
 
 const App = () => {
   const [buttonLabel, setButtonLabel] = useState('Start');
@@ -41,6 +41,8 @@ const App = () => {
   const timeAnnouncer = () => {
     const timeNow = new Date().toLocaleTimeString();
     const hoursMinutes = timeNow.split(':');
+    Tts.setDucking(true);
+    Tts.setIgnoreSilentSwitch(true);
     Tts.speak(
       `The time is ${hoursMinutes[0]} ${
         hoursMinutes[1] === '00' ? '' : hoursMinutes[1]
