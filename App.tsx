@@ -18,14 +18,14 @@ import {
   TouchableOpacity,
   useColorScheme,
   View,
+  NativeModules,
 } from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 
-import Tts from 'react-native-tts';
 import BackgroundTimer from 'react-native-background-timer';
 
-const ONE_HOUR = 3600000;
+const ONE_HOUR = 4000; //3600000;
 
 const App = () => {
   const [buttonLabel, setButtonLabel] = useState('Start');
@@ -41,20 +41,16 @@ const App = () => {
   const timeAnnouncer = () => {
     const timeNow = new Date().toLocaleTimeString();
     const hoursMinutes = timeNow.split(':');
-    Tts.speak(
+
+    NativeModules.TimeAnnouncer.CalloutTime(
       `The time is ${hoursMinutes[0]} ${
         hoursMinutes[1] === '00' ? '' : hoursMinutes[1]
       }`,
     );
-    Tts.addEventListener('tts-start', event => console.log('start', event));
-    Tts.addEventListener('tts-progress', event =>
-      console.log('progress', event),
-    );
-    Tts.addEventListener('tts-finish', event => console.log('finish', event));
-    Tts.addEventListener('tts-cancel', event => console.log('cancel', event));
   };
 
   const clearTime = (id: number) => {
+    NativeModules.TimeAnnouncer.StopCallout();
     clearInterval(id);
     BackgroundTimer.stop();
   };
