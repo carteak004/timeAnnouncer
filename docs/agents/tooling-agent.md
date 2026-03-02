@@ -2,6 +2,10 @@
 
 Inherit all constraints from `AGENTS.md` first.
 
+## Prompt Template Wiring
+- Shared rules: `docs/prompt-templates/global-constraints.prompt.txt`
+- Primary template: `docs/prompt-templates/task-planner.system.prompt.txt`
+
 ## Focus
 - Build tooling, linting, scripts, dependency management, and configuration.
 

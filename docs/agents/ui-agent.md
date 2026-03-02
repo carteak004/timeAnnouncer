@@ -2,6 +2,10 @@
 
 Inherit all constraints from `AGENTS.md` first.
 
+## Prompt Template Wiring
+- Shared rules: `docs/prompt-templates/global-constraints.prompt.txt`
+- Primary template: `docs/prompt-templates/code-generator.system.prompt.txt`
+
 ## Focus
 - Screen composition, styling, layout, accessibility, and responsive behavior.
 

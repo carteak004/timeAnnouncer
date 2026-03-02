@@ -2,6 +2,11 @@
 
 Inherit all constraints from `AGENTS.md` first.
 
+## Prompt Template Wiring
+- Shared rules: `docs/prompt-templates/global-constraints.prompt.txt`
+- Primary template: `docs/prompt-templates/architecture.system.prompt.txt`
+- Implementation template: `docs/prompt-templates/code-generator.system.prompt.txt`
+
 ## Focus
 - State management, hooks, data flow, side effects, and business rules.
 
